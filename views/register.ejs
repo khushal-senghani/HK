@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Signup Page</title>
+	<link rel="stylesheet" type="text/css" href="login.css">
+	<link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+  
+    <style>
+        body{
+            background-image: url('https://img.freepik.com/free-vector/happy-diverse-students-celebrating-graduation-from-school_74855-5853.jpg?size=626&ext=jpg');
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background-position: top;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100%;
+         }
+        
+        body h1{
+            text-align: center;
+            margin: 30px;
+            font-size: 70px;
+            font-family: 'Permanent Marker' ;
+            margin-bottom: 70px;
+            color: #73a3f0;
+            text-shadow: 2px 2px 4px #000000; 
+            font-size: auto;
+        
+        }
+        
+        .box h2{
+            color: #d1c0c0;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+        .box{
+            width: 300px;
+            padding: 40px;
+            top: 60%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%,-50%);
+            background-image: url('https://ak.picdn.net/shutterstock/videos/1021795372/thumb/9.jpg');
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 5px 10px 18px #080d12;
+        }
+        
+        .box input[type = "name"],.box input[type = "text"],.box input[type = "password"],.box input[type = "password2"]
+        {
+            border: 0;
+            background: none;
+            display: block;
+            margin: 10px auto;
+            text-align: center;
+            border: 2px solid #3498db;
+            padding: 14px 10px;
+            width: 200px;
+            outline: none;
+            color: white;
+            border-radius: 24px;
+            transition: 0.25s;
+        }
+        
+        .box button{
+            border: 0;
+            background: none;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #2ecc71;
+            padding: 8px 20px;
+            outline: none;
+            color: white;
+            border-radius: 24px;
+            transition: .75s;
+            cursor: pointer;
+        }
+        
+        .box button:hover{
+            background: #2ecc71;
+        
+        }
+    </Style>
+</head>
+<body>
+    
+    <h1>Registation</h1>
+
+	<form class="box" action="/clg/register" method="POST">
+        <div>
+            <label for="name">Name</label>
+            <input
+            type="name"
+            name="name"
+            placeholder="Enter Name"
+            value="<%= typeof name != 'undefined' ? name : '' %>"
+            />
+        
+        </div>
+        <div>
+            <label for="License">License</label>
+            <input
+            type="text"
+            name="licensce"
+            placeholder="Enter licensce"
+            value="<%= typeof licensce != 'undefined' ? licensce : '' %>"
+            />
+        </div>
+        <div >
+            <label for="password">Password</label>
+            <input
+            type="password"
+            name="password"
+            placeholder="Create Password"
+            value="<%= typeof password != 'undefined' ? password : '' %>"
+            />
+        </div>
+        <div >
+            <label for="password2">Confirm Password</label>
+            <input
+            type="password"
+            name="password2"
+            placeholder="Confirm Password"
+            value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
+            />
+        </div>
+        <br>
+        <br>
+        <button type="submit">submit</button>
+        </form>
+
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<title>Login Page</title>
+	<link rel="stylesheet" type="text/css" href="login.css">
+	<link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+   
+    <style>
+        body{
+            background-image: url('https://img.freepik.com/free-vector/happy-diverse-students-celebrating-graduation-from-school_74855-5853.jpg?size=626&ext=jpg');
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background-position: top;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100%;
+         }
+        
+        
+        body h1{
+            text-align: center;
+            margin: 50px;
+            font-size: 70px;
+            font-family: 'Permanent Marker' ;
+            margin-bottom: 70px;
+            color: #73a3f0;
+            text-shadow: 2px 2px 4px #000000; 
+            font-size: auto;
+        
+        }
+        
+        
+        .box h2{
+            color: #d1c0c0;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+        .box{
+            width: 300px;
+            padding: 40px;
+            top: 70%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%,-50%);
+            background-image: url('https://ak.picdn.net/shutterstock/videos/1021795372/thumb/9.jpg');
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 5px 10px 18px #080d12;
+        }
+        
+        .box input[type = "text"],.box input[type = "password"]{
+            border: 0;
+            background: none;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #3498db;
+            padding: 14px 10px;
+            width: 200px;
+            outline: none;
+            color: white;
+            border-radius: 24px;
+            transition: 0.25s;
+        }
+        
+        .box button{
+            border: 0;
+            background: none;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #2ecc71;
+            padding: 8px 20px;
+            outline: none;
+            color: white;
+            border-radius: 24px;
+            transition: .75s;
+            cursor: pointer;
+        }
+        
+        .box button:hover{
+            background: #2ecc71;
+        
+        }
+    </style>
+</head>
+<body>
+
+    
+
+    <h1>Welcome to Test Portal</h1>
+   
+	<form class="box" action="" method="">
+		<h2>Login</h2>
+		<input type="text" name="email"  placeholder="email">
+		<input type="password" name="password"  placeholder="Password">
+		<input type="submit" onclick="return check(this.form)" value="Login">
+        <br>
+	</form>
+
+
+    <script language="javascript">
+
+    function page_redirect(){  
+        window.location = "/admindashboard";  
+        }  
+
+
+        function check(form)
+        {
+        
+        if(form.email.value == "mharsh543@gmail.com" && form.password.value == "1234567")
+        {   
+            console.log("succ")
+            page_redirect();
+        }
+        else
+        {
+            alert("Error Password or Username")
+            return false;
+        }
+        }
+        </script>
+</body>
+</html> -->
+
+
+
+
+<html>
+<head>
+<title>Javascript Login Form Validation</title>
+<!-- Include CSS File Here -->
+<link rel="stylesheet" href="css/style.css"/>
+<!-- Include JS File Here -->
+
+</head>
+<body>
+<div class="container">
+<div class="main">
+<h2>Javascript Login Form Validation</h2>
+<form id="form_id" method="post" name="myform">
+<label>User Name :</label>
+<input type="text" name="username" id="username"/>
+<label>Password :</label>
+<input type="password" name="password" id="password"/>
+<input type="button" value="Login" id="submit" onclick="validate()"/>
+</form>
+<span><b class="note">Note : </b>For this demo use following username and password. <br/><b class="valid">User Name : Formget<br/>Password : formget#123</b></span>
+</div>
+</div>
+
+<script>
+    var attempt = 3; // Variable to count number of attempts.
+// Below function Executes on click of login button.
+function validate(){
+var username = document.getElementById("username").value;
+var password = document.getElementById("password").value;
+if ( username == "Formget" && password == "formget#123"){
+alert ("Login successfully");
+window.location = "/admindashboars"; // Redirecting to other page.
+return false;
+}
+else{
+attempt --;// Decrementing by one.
+alert("You have left "+attempt+" attempt;");
+// Disabling fields after 3 attempts.
+if( attempt == 0){
+document.getElementById("username").disabled = true;
+document.getElementById("password").disabled = true;
+document.getElementById("submit").disabled = true;
+return false;
+}
+}
+}
+</script>
+</body>
+</html>
