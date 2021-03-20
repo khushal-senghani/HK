@@ -9,6 +9,10 @@ const passport = require("passport");
 const bodyParser = require("body-parser");
 const Localstrategy = require("passport-local");
 const passportLocalMongooose = require("passport-local-mongoose");
+const multer = require('multer');
+const GridFsStorage = require('multer-gridfs-storage');
+const Grid = require('gridfs-stream');
+// const methodOverride = require('method-override');
 
 
 app.use(express.urlencoded({extended : true}));
@@ -24,7 +28,9 @@ app.set('view engine','ejs');
 //app.use(expressEjsLayout);  
 
 //MongoDB connect
-mongoose.connect('mongodb+srv://cluster0.yuj1k.mongodb.net/project?retryWrites=true&w=majority',
+mongoURI = "mongodb+srv://cluster0.yuj1k.mongodb.net/project?retryWrites=true&w=majority"
+// const conn = mongoose.createConnection(mongoURI);
+mongoose.connect(mongoURI,
  {  
     dbName : 'Pravesh',
     user : 'nipa',
@@ -34,6 +40,12 @@ mongoose.connect('mongodb+srv://cluster0.yuj1k.mongodb.net/project?retryWrites=t
     .then(() => {
     console.log('MongoDB Connected');
 });
+
+
+// // Middleware
+// app.use(bodyParser.json());
+// app.use(methodOverride('_method'));
+// app.set('view engine', 'ejs');
 
 // app.use(require("express-session")({
 //     secret : 'secret',
@@ -62,17 +74,47 @@ mongoose.connect('mongodb+srv://cluster0.yuj1k.mongodb.net/project?retryWrites=t
 //     next();
 //     });
 
+// // Init gfs
+// let gfs;
+
+// mongoose.connection.once('open', () => {
+//   // Init stream
+//   gfs = Grid(conn.db, mongoose.mongo);
+//   gfs.collection('clgform');
+// });
+
+// // Create storage engine
+// const storage = new GridFsStorage({
+//   url: mongoURI,
+//   file: (req, file) => {
+//     return new Promise((resolve, reject) => {
+//       crypto.randomBytes(16, (err, buf) => {
+//         if (err) {
+//           return reject(err);
+//         }
+//         const filename = buf.toString('hex') + path.extname(file.originalname);
+//         const fileInfo = {
+//           filename: filename,
+//           bucketName: 'clgform'
+//         };
+//         resolve(fileInfo);
+//       });
+//     });
+//   }
+// });
+// const upload = multer({ storage });
 
 
 app.use('/',require('./routes/index'));
 app.use('/users',require('./routes/users'));
 app.use('/clg',require('./routes/clg'));
+app.use('/form', require('./routes/form')); 
 
 
+  
 
-
-
-// module.exports = College;
+// module.exports = conn;
+module.exports = mongoURI;
 
 app.listen(3000, function(){
     console.log("Server has started");

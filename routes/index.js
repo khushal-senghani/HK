@@ -1,4 +1,3 @@
-const php = require('php')
 const express = require('express');
 // const College = require("../app");
 const router  = express.Router();
@@ -83,9 +82,7 @@ router.get("/paymentgateway",function(req, res){
 });
 
 
-router.get("/collegedetails",function(req, res){
-    res.render("collegedetailform.ejs");
-});
+
 
 
 
@@ -187,7 +184,7 @@ router.get("/adminLogin",function(req, res){
 })
 
 
-router.get("/admindashboars",function(req, res){
+router.get("/admindashboard",function(req, res){
     res.render('admindashboard.ejs');
 })
 
@@ -206,7 +203,9 @@ router.get('/logout', function (req, res){
 
 
 
-
+router.get('*', function (req, res){
+    res.send("404 Error")
+});
 
 
 
