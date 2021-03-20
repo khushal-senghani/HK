@@ -57,7 +57,7 @@ passport.authenticate('local',{
         password2 : password2})
      } else {
         //validation passed
-       Pravesh.logins.findOne({college : {licensce : licensce}}).exec((err,user)=>{
+        logins.findOne({college : {licensce : licensce}}).exec((err,user)=>{
         //console.log(user);   
         if(user) {
             errors.push({msg: 'Licensce already registered'});

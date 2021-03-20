@@ -1,3 +1,0 @@
-"# hk" 
-"# admission" 
-"# admission" 

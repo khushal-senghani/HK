@@ -57,7 +57,7 @@ passport.authenticate('local',{
         password2 : password2})
      } else {
         //validation passed
-        Pravesh.logins.findOne({email : email}).exec((err,user)=>{
+        logins.findOne({email : email}).exec((err,user)=>{
         console.log(user);   
         if(user) {
             errors.push({msg: 'email already registered'});
@@ -80,10 +80,10 @@ passport.authenticate('local',{
                     newLogin.save()
                     .then((value)=>{
                         console.log(value)
-                        req.flash('success_msg','You have now registered!');
+                        // req.flash('success_msg','You have now registered!');
                         res.redirect('/users/login');
                     })
-                    .catch(value=> console.log(value));
+                    .catch(err => {console.log(err)});
                       
                 }));
              }
