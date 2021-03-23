@@ -68,9 +68,17 @@ router.get("/settings",function(req, res){
 
 //clg admission form
 router.get("/clgaddmissionform",function(req, res){
-    res.send("clg addmisiion form!!");
+    res.render("")
 });
 
+//college details
+router.get("/collegedetails",function(req, res){
+    res.render("collegedetailform.ejs");
+});
+
+router.post('/collegedetails/upload',function(req, res){
+    console.log(req.body);
+});
 
 //my applications
 router.get("/applicationstatus",function(req, res){

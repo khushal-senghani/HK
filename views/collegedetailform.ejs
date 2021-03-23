@@ -1,11 +1,20 @@
 <html>
+    <head></head>
+    <script>
+         var image = document.getElementsByName('image');
+         var canvas = document.createElement('CANVAS');
+         var ctx = canvas.getContext('2d');
+         var dataURL;
+         dataURL = canvas.toDataURL(outputFormat);
+         callback(dataURL);
+    </script>
     <body>
 
 
 
-        <Form method="POST" action="" enctype="multipart/form-data">
+        <Form method="POST" action="/collegedetails/upload" enctype="multipart/form-data">
             <p>
-                Enter Your Licensce: <input type="file" id="myFile" name="filename">
+                Enter Your Licensce: <input type="file" accept="image/*" id="myFile" name="image">
             </p>
             <br>
 
@@ -15,7 +24,7 @@
             <br>
 
             <p>
-                Enter Your College Logo: <input type="file" id="myFile" name="filename">
+                Enter Your College Logo: <input type="file" accept="image/*" id="myFile" name="image">
             </p>
             <br>
 
@@ -23,21 +32,21 @@
                 Enter Your Facilities: <input type="textarea" id="myFile" name="filename"> <br> 
             </p>
             <p>
-                Enter Images For Better Engagement: <input type="file" id="myFile" name="filename"> <br> <input type="file" id="myFile" name="filename">
+                Enter Images For Better Engagement: <input type="file" accept="image/*" id="myFile" name="image"> <br> <input type="file" id="myFile" name="filename">
             </p>
 
             <p>
                 Enter Your Campus Details: <input type="textarea" id="myFile" name="filename"> <br> 
             </p>
             <p>
-                Enter Images For Better Engagement: <input type="file" id="myFile" name="filename"> <br> <input type="file" id="myFile" name="filename">
+                Enter Images For Better Engagement: <input type="file" accept="image/*" id="myFile" name="image"> <br> <input type="file" id="myFile" name="filename">
             </p>
 
             <p>
                 Enter Your Alumini Details: <input type="textarea" id="myFile" name="filename"> <br> 
             </p>
             <p>
-                Enter Images For Better Engagement: <input type="file" id="myFile" name="filename"> <br> <input type="file" id="myFile" name="filename">
+                Enter Images For Better Engagement: <input type="file" accept="image/*" id="myFile" name="image"> <br> <input type="file" id="myFile" name="filename">
             </p>
 
             <p>
