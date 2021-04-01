@@ -192,113 +192,23 @@
   <div class="container">
       
     
-    
+  
     <div class="row text-center">
        <div class="col-sm-1">
       <span style="font-size: 30px;" class="glyphicon glyphicon-filter"></span>
     </div>
+    
     <h3 style=" text-align: center;">  College List </h3>
       <div class="col-sm-4">
+        <% data.forEach(function(data) {%>
         <div class="thumbnail">
-          <img src="https://www.wallpapertip.com/wmimgs/155-1558331_30-cambridge-university-wallpapers-download-at-wallpaperbro-kings.jpg" alt="Paris" width="400" height="300">
-          <p><strong>IIT Bombay</strong></p>
-          <p><span class="glyphicon glyphicon-map-marker">Mumbai</span></p>
+          <img src=<%= data.college_logo %> alt= <%= data.college_name %> width="400" height="300">
+          <p><strong><%= data.college_name %></strong></p>
+          <p><span class="glyphicon glyphicon-map-marker"><%= data.address %></span></p>
           <button class="btn" data-toggle="modal" data-target="#myModal">View Details</button>
         </div>
+        <% });%>
       </div>
-      <div class="col-sm-4">
-        <div class="thumbnail">
-          <img src="https://i.pinimg.com/originals/97/74/8f/97748fcb20cbf6fba06e1393609b1de1.jpg" alt="New York" width="400" height="300">
-          <p><strong>IIT Madras</strong></p>
-          <p><span class="glyphicon glyphicon-map-marker">Chennai</span></p>
-          <button class="btn" data-toggle="modal" data-target="#myModal">View Details</button>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="thumbnail">
-          <img src="https://i.pinimg.com/originals/00/b9/03/00b90393497e7123a74d95f544b25fe4.jpg" alt="San Francisco" width="400" height="300">
-          <p><strong>IIT Delhi</strong></p>
-          <p><span class="glyphicon glyphicon-map-marker">NewDelhi</span></p>
-          <button class="btn" data-toggle="modal" data-target="#myModal">View Details</button>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="thumbnail">
-          <img src="https://www.wallpapertip.com/wmimgs/155-1558331_30-cambridge-university-wallpapers-download-at-wallpaperbro-kings.jpg" alt="New York" width="400" height="300">
-          <p><strong>IIT Khargpur</strong></p>
-          <p><span class="glyphicon glyphicon-map-marker">Kharaghpur</span></p>
-          <button class="btn" data-toggle="modal" data-target="#myModal">View Details</button>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="thumbnail">
-          <img src="https://i.pinimg.com/originals/97/74/8f/97748fcb20cbf6fba06e1393609b1de1.jpg" alt="San Francisco" width="400" height="300">
-          <p><strong>IIT Kanpur</strong></p>
-          <p><span class="glyphicon glyphicon-map-marker">Kanpur</span></p>
-          <button class="btn" data-toggle="modal" data-target="#myModal">View Details</button>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="thumbnail">
-          <img src="https://i.pinimg.com/originals/00/b9/03/00b90393497e7123a74d95f544b25fe4.jpg" alt="Paris" width="400" height="300">
-          <p><strong>IIT Gandhinagar</strong></p>
-          <p><span class="glyphicon glyphicon-map-marker">Gandhinagar</span></p>
-          <button class="btn" data-toggle="modal" data-target="#myModal">View Details</button>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="thumbnail">
-          <img src="https://www.wallpapertip.com/wmimgs/155-1558331_30-cambridge-university-wallpapers-download-at-wallpaperbro-kings.jpg" alt="New York" width="400" height="300">
-          <p><strong>IIM Ahemdabad</strong></p>
-          <p><span class="glyphicon glyphicon-map-marker">Ahemdabad</span></p>
-          <button class="btn" data-toggle="modal" data-target="#myModal">View Details</button>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="thumbnail">
-          <img src="https://i.pinimg.com/originals/97/74/8f/97748fcb20cbf6fba06e1393609b1de1.jpg" alt="San Francisco" width="400" height="300">
-          <p><strong>IIM Banglore</strong></p>
-          <p><span class="glyphicon glyphicon-map-marker">Banglore</span></p>
-          <button class="btn" data-toggle="modal" data-target="#myModal">View Details</button>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="thumbnail">
-          <img src="https://i.pinimg.com/originals/00/b9/03/00b90393497e7123a74d95f544b25fe4.jpg" alt="Paris" width="400" height="300">
-          <p><strong>IIM Calcutta</strong></p>
-          <p><span class="glyphicon glyphicon-map-marker">Kolkata</span></p>
-          <button class="btn" data-toggle="modal" data-target="#myModal">View Details</button>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="thumbnail">
-          <img src="https://www.wallpapertip.com/wmimgs/155-1558331_30-cambridge-university-wallpapers-download-at-wallpaperbro-kings.jpg" alt="New York" width="400" height="300">
-          <p><strong>IIM J&k</strong></p>
-          <p><span class="glyphicon glyphicon-map-marker">J&K</span></p>
-          <button class="btn" data-toggle="modal" data-target="#myModal">View Details</button>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="thumbnail">
-          <img src="https://i.pinimg.com/originals/97/74/8f/97748fcb20cbf6fba06e1393609b1de1.jpg" alt="San Francisco" width="400" height="300">
-          <p><strong>IIM Hydrabad</strong></p>
-          <p><span class="glyphicon glyphicon-map-marker">Hydrabad</span></p>
-          <button class="btn" data-toggle="modal" data-target="#myModal">View Details</button>
-        </div>
-        <button class="btn btn-default pull-left"><< BACK</button>
-        <button class="btn btn-default pull-right">NEXT >></button>
-      </div>
-      <div class="col-sm-4">
-        <div class="thumbnail">
-          <img src="https://i.pinimg.com/originals/00/b9/03/00b90393497e7123a74d95f544b25fe4.jpg" alt="San Francisco" width="400" height="300">
-          <p><strong>IIM Hydrabad</strong></p>
-          <p><span class="glyphicon glyphicon-map-marker">Hydrabad</span></p>
-          <button class="btn" data-toggle="modal" data-target="#myModal">View Details</button>
-        
-    </div>
-  </div>
-  </div>
-  
 
 
   <!-- Modal -->
@@ -331,7 +241,7 @@
       <p><span class="glyphicon glyphicon-envelope"></span>lorem ipsum</p>
     </div>
     <div class="col-md-8">
-      <div class="row">
+      <!-- <div class="row">
         <div class="col-sm-6 form-group">
           <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
         </div>
@@ -344,7 +254,9 @@
       <div class="row">
         <div class="col-md-12 form-group">
           <button class="btn pull-right" type="submit">Send</button>
-        </div>
+        </div> -->
+
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd9njNjEFI0dQQKzb0YQPoeFyHpIIbzcv5z0-nrILqKqtnmcA/viewform?embedded=true" width="640" height="350" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
       </div>
     </div>
   </div>
@@ -400,3 +312,4 @@ $(document).ready(function(){
 
 </body>
 </html>
+<%= data %>
