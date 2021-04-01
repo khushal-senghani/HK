@@ -41,7 +41,7 @@ mongoose.connect(mongoURI,
 
 
 // // Middleware
-// app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended : true}));
 // app.use(methodOverride('_method'));
 // app.set('view engine', 'ejs');
 

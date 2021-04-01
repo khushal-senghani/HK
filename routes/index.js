@@ -3,9 +3,11 @@ const express = require('express');
 const router  = express.Router();
 const {ensureAuthenticated} = require('../config/auth');
 const mongoose = require('mongoose');
-// const College = require("../models/College");
+const bodyparser = require('body-parser');
+const College_form = require("../models/clgform");
 
-
+router.use(bodyparser.json());
+router.use(bodyparser.urlencoded({extended : true}));
 
 //homepage
 router.get("/",function(req, res){
@@ -34,21 +36,23 @@ router.get("/signup",function(req, res){
 // });
 
 //doc upload
-router.get("/docupload",function(req, res){
-    res.send("doc upload page!!");
+router.get("/stundentdetailsform",function(req, res){
+    res.render("studentform.ejs");
 });
-
+router.get("/stundentform",function(req, res){
+    res.render("studentviewform.ejs");
+});
 //broucher
 router.get("/broucher",function(req, res){
     // Get all college from DB
-    // College.find({}, function(err, allCollege){
-    //     if(err){
-    //         console.log(err);
-    //     }   else{
-    //         res.render('broucher.ejs', {college: allCollege});
-    //     }
-    // })
-    res.render('broucher.ejs');
+    College_form.find({}, function(err, data) {
+            if(err){
+                console.log(err);
+            }
+            else{
+                res.render("broucher.ejs", {data : data});
+            }
+        });
 });
 
 //student profile
@@ -77,7 +81,24 @@ router.get("/collegedetails",function(req, res){
 });
 
 router.post('/collegedetails/upload',function(req, res){
-    console.log(req.body);
+    // console.log(req.body);
+    // var licensce = req.body.licensce;
+    // var college_name = req.body.college_name;
+    // var college_logo = req.body.college_logo;
+    // var facilities = req.body.facilities;
+    // var facilities_img = req.body.facilities_img;
+    // var campus = req.body.campus;
+
+
+    var myData = new College_form(req.body);
+    myData.save()
+    .then(item => {
+    res.send("item saved to database");
+    })
+    .catch(err => {
+    res.status(400).send("unable to save to database" + err);
+    });
+
 });
 
 //my applications
@@ -123,8 +144,21 @@ router.get("/paymentgateway",function(req, res){
 // });
 
 //clg template
-router.get("/clgtemplate", function(req, res){
-    res.render("clgTemplate.ejs");
+router.get("/clgtemplate/605ccea5a9817e0f50649691", function(req, res){
+    // College_form.find({}, function(err, result) {
+    //     res.send(result[0]._id);
+       
+    // });
+
+    College_form.findOne({_id : "605ccea5a9817e0f50649691" }, 
+        function(err, data) {
+            if(err){
+                console.log(err);
+            }
+            else{
+                res.render("clgtemplate.ejs", {data : data});
+            }
+        });
 });
 
 //clgnew  template
@@ -184,7 +218,9 @@ router.get("/clgSettings",function(req, res){
     res.send("clg Settings page!!");
 });//create more routes for specific settings
 
-
+router.get("/applications", function(req, res){
+    res.render("applications.ejs");
+});
 
 //Admin Side
 router.get("/adminLogin",function(req, res){
@@ -214,6 +250,7 @@ router.get('/logout', function (req, res){
 router.get('*', function (req, res){
     res.send("404 Error")
 });
+
 
 
 
